@@ -54,7 +54,7 @@ namespace sdds {
    //In order of header file
     bool Account::isInvalid()  //"Invalid Empty State" which is why we need a isInvalid function
     {
-        return (m_number < 0 || m_balance < 0.0);
+        return (m_balance < 0.0 || m_number < 0);
     }
 
    //Unary member operator
@@ -151,7 +151,7 @@ namespace sdds {
 
     Account& Account::operator =(int NUM) 
     {
-        if (!isInvalid() && m_number == 0 && m_balance == 0.0) 
+        if (!isInvalid() && m_balance == 0.0 && m_number == 0) 
         {
             setEmpty();        //set account number empty
             if (NUM >= 99999 && NUM >= 10000)     
