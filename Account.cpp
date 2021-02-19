@@ -152,7 +152,7 @@ namespace sdds {
 
     Account& Account::operator =(int NUM) 
     {
-        if (!isInvalid() && m_number == 0 && m_balance == 0.0) 
+        if (!isInvalid() && m_balance == 0.0 && m_number == 0)  
         {
             setEmpty();            //set account number empty
             if (NUM >= 10000 && NUM <= 99999) 
