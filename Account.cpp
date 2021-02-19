@@ -93,7 +93,7 @@ namespace sdds {
     {
         if (!this->isInvalid() && !account.isInvalid()) 
         {
-           if this->m_number != account.m_number) 
+           if (this->m_number != account.m_number) 
            {
                m_balance += account.m_balance;       //sum and equal
 
