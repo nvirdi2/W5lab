@@ -121,9 +121,9 @@ namespace sdds {
                  && account.m_number >= 10000 && account.m_number <= 99999) 
         {
             this->m_number = account.m_number;       //move account one to the other
-            account.m_number = 0;          //right side set as 0
-
             this->m_balance = account.m_balance;   //move balance one to the other
+           
+            account.m_number = 0;          //right side set as 0
             account.m_balance = 0;       //right side set as 0
         } return *this;      //return current object
     }
