@@ -158,14 +158,16 @@ namespace sdds {
 
     Account& Account::operator =(int NUM) 
     {
-        if (!isInvalid() && m_number == 0 && m_balance == 0.0) 
-        {
-            setEmpty();            //set account number empty
-            if (NUM >= 10000 && NUM <= 99999) 
-            {
-                m_number = NUM;      //account number will equal to integer number
-            }
-        } return *this;     //return current object
+        if (!isInvalid()){
+           if (m_number == 0 && m_balance == 0.0) 
+           {
+               setEmpty();            //set account number empty
+               if (NUM >= 10000 && NUM <= 99999) 
+               {
+                   m_number = NUM;      //account number will equal to integer number
+               }
+           } 
+        }return *this;     //return current object
     }
 
 
