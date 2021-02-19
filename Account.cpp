@@ -91,12 +91,14 @@ namespace sdds {
 
     Account& Account::operator <<(Account& account) 
     {
-        if (!this->isInvalid() && !account.isInvalid() 
-                && this->m_number != account.m_number) 
+        if (!this->isInvalid() && !account.isInvalid()) 
         {
-            m_balance += account.m_balance;       //sum and equal
+           if this->m_number != account.m_number) 
+           {
+               m_balance += account.m_balance;       //sum and equal
 
-            account.m_balance = 0;       //account number will be 0
+               account.m_balance = 0;       //account number will be 0
+           } 
         } return *this;           //return current object
     }
 
