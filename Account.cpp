@@ -104,13 +104,15 @@ namespace sdds {
 
     Account& Account::operator >>(Account& account) 
     {
-        if (!this->isInvalid() && !account.isInvalid() 
-                && this->m_number != account.m_number) 
+        if (!this->isInvalid() && !account.isInvalid()) 
         {
-            account.m_balance += m_balance;      //sum and equal
+           if(this->m_number != account.m_number) 
+           {
+              account.m_balance += m_balance;      //sum and equal
 
-            m_balance = 0;       //balance will be 0
-        } return *this;        //return current object
+              m_balance = 0;       //balance will be 0
+           }
+        }return *this;        //return current object
     }
 
 
@@ -135,9 +137,12 @@ namespace sdds {
 
     Account& Account::operator +=(double vals) 
     {
-        if (!isInvalid() && vals >= 0) 
+        if (!isInvalid())
         {
-            m_balance += vals;
+           if (vals >= 0) 
+           {
+               m_balance += vals;
+           } 
         } return *this;       //return current object
     }
 
@@ -158,7 +163,8 @@ namespace sdds {
 
     Account& Account::operator =(int NUM) 
     {
-        if (!isInvalid()){
+        if (!isInvalid())
+        {
            if (m_number == 0 && m_balance == 0.0) 
            {
                setEmpty();            //set account number empty
@@ -167,7 +173,7 @@ namespace sdds {
                    m_number = NUM;      //account number will equal to integer number
                }
            } 
-        }return *this;     //return current object
+        } return *this;     //return current object
     }
 
 
