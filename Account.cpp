@@ -117,14 +117,17 @@ namespace sdds {
 
     Account& Account::operator =(Account& account) 
     {
-        if (!isInvalid() && this->m_number == 0 && this->m_balance == 0.0
-                 && account.m_number >= 10000 && account.m_number <= 99999) 
+        if (!isInvalid())
         {
-            this->m_number = account.m_number;       //move account one to the other
-            this->m_balance = account.m_balance;   //move balance one to the other
-           
-            account.m_number = 0;          //right side set as 0
-            account.m_balance = 0;       //right side set as 0
+            if(this->m_number == 0 && this->m_balance == 0.0
+                 && account.m_number >= 10000 && account.m_number <= 99999) 
+            {
+                this->m_number = account.m_number;       //move account one to the other
+                account.m_number = 0;          //right side set as 0
+
+                this->m_balance = account.m_balance;   //move balance one to the other
+                account.m_balance = 0;       //right side set as 0
+            }
         } return *this;      //return current object
     }
 
@@ -142,17 +145,20 @@ namespace sdds {
 
     Account& Account::operator -=(double vals) 
     {
-        if (!isInvalid() && vals >= 0 && m_balance >= vals) 
+        if (!isInvalid())
         {
-            m_balance -= vals;      //balance will reduce by a double val
-        } return *this;     //return current object
+            if (vals >= 0 && m_balance >= vals) 
+            {
+                m_balance -= vals;      //balance will reduce by a double val
+            } 
+        } return *this;    //return current object
     }
 
 
 
     Account& Account::operator =(int NUM) 
     {
-        if (!isInvalid() && m_balance == 0.0 && m_number == 0)  
+        if (!isInvalid() && m_number == 0 && m_balance == 0.0) 
         {
             setEmpty();            //set account number empty
             if (NUM >= 10000 && NUM <= 99999) 
